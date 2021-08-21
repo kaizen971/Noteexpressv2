@@ -1,0 +1,470 @@
+/********************
+Adrien : CSS Page d'accueil
+********************/
+/* Le body et le display flex pour les cases */
+body {
+    background-color: #fff;
+    font-family: "Raleway", sans-serif;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+}
+/* HEADER  */
+.header {
+    background-color: #dba67b;
+}
+
+/* Bouton se connecter */
+.fa-user {
+    background-color: #a55c55;
+    border: 0;
+    border-radius: 20px;
+    margin-right: 0.5em;
+    font-size: 1.6em;
+    transition: all 0.4s ease;
+}
+.btn:hover {
+    background-color: #a55c55;
+    transform: scale(1.2);
+}
+.modal-footer button {
+    background-color: #a55c55;
+    border: 0;
+    transition: all 0.4s ease;
+}
+/* Titre du header  */
+.header h1 {
+    font-family: "Teko", sans-serif;
+    color: #fff;
+    font-size: 2.7em;
+    transition: all 0.4s ease;
+    margin-top: 0.3em;
+}
+.header h1:hover {
+    transform: scale(1.2);
+}
+
+/* Logos du header sauf bouton "connected" */
+.fa-home {
+    color: #a55c55;
+    font-size: 2em;
+    padding: 25px;
+    transition: all 0.4s ease;
+}
+.fa-home:hover,
+.fa-sticky-note:hover,
+.fa-chevron-up:hover {
+    animation-name: jigglebis;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+/* FIN HEADER  */
+
+/* Bloc ou la il y a la liste des logos */
+.card-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+/* Liste de logos en ligne  */
+.card-logo .far,
+.card-logo .fas,
+.card-logo .fab {
+    font-size: 1.6em;
+    padding: 20px;
+    color: #dba67b;
+    padding: 1em 1.6em 3em 1.6em;
+    transition: all 0.4s ease;
+}
+.card-logo .far:hover,
+.card-logo .fas:hover,
+.card-logo .fab:hover {
+    transform: scale(1.2);
+}
+.card-logo i:nth-child(even) {
+    color: #a55c55;
+}
+
+/***************
+****************
+ 		 BODY
+Carte 
+Intégration,
+Extension,
+Developpement,
+****************
+****************/
+
+/* Titres des cards  */
+.card-inte h3,
+.card-extension h3,
+.card-dev h3,
+.card-qcm h3 {
+    display: flex;
+    font-size: 1.5em;
+    justify-content: center;
+    margin-bottom: 0.5em;
+}
+
+/* Contenu caché apparaît au survol */
+.inte-hover,
+.extension-hover,
+.dev-hover {
+    opacity: 0;
+    color: #492825;
+    font-size: 1em;
+    font-style: italic;
+    transition: opacity 0.5s;
+}
+/* Apparition au survol */
+.card-inte:hover .inte-hover,
+.card-dev:hover .dev-hover,
+.card-extension:hover .extension-hover,
+.card-qcm:hover .qcm-hover {
+    opacity: 1;
+}
+
+/* Les logos des cards*/
+.card-inte i,
+.card-extension i,
+.card-dev i,
+.card-qcm i {
+    margin: 1em 0.5em;
+    font-size: 2em;
+}
+
+/* CARTES INTÉ EXTENSION DEV  */
+.card-dev,
+.card-extension,
+.card-inte {
+    transition: all 0.4s;
+    text-align: center;
+    color: #fff;
+    background-color: #a55c55;
+    width: 25%;
+    padding: 3em;
+    border-radius: 6em;
+    margin: 2em 4em 2em 4em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+.card-dev:hover,
+.card-extension:hover,
+.card-inte:hover {
+    animation-name: jiggle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-color: #dba67b;
+    color: #492825;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    cursor: pointer;
+}
+
+.card-extension {
+    border-radius: 4em;
+}
+
+.card-inte a,
+.card-dev a,
+.card-extension a {
+    color: #fff;
+}
+.card-dev:hover a,
+.card-extension:hover a,
+.card-inte:hover a {
+    color: #492825;
+}
+
+/******************
+*******************
+*******************
+		CASE QCM
+*******************
+*******************
+******************/
+.card-qcm {
+    transition: all 0.4s ease;
+    color: #fff;
+    background-color: #dba67b;
+    width: 40%;
+    padding: 3em 5em 3em 5em;
+    padding: 3em;
+    border-radius: 5em;
+    margin: 5em auto 8em;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+.card-qcm a {
+    color: #fff;
+}
+/* La case qcm au survol */
+.card-qcm:hover {
+    animation-name: jiggle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-color: #dba67b;
+    color: #492825;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    cursor: pointer;
+}
+.card-qcm:hover a {
+    color: #492825;
+}
+/* Contenu caché de qcm */
+.qcm-hover {
+    opacity: 0;
+    color: #492825;
+    font-size: 1.5em;
+    font-style: italic;
+    transition: opacity 0.5s;
+}
+
+/* Texte de la card qcm  */
+.card-qcm p {
+    font-size: 0.8em;
+}
+/* Contenu devient visible au survol de qcm  4*/
+
+/* FOOTER TIME  */
+.footer {
+    background-color: #a55c55;
+    position: absolute;
+    
+    right: 0;
+    left: 0;
+}
+
+/* Logo footer */
+.fa-chevron-up,
+.fa-copyright {
+    font-size: 1.5em;
+    padding: 1em;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+.fa-copyright:hover,
+.fa-chevron-up:hover {
+    transform: scale(1.2);
+}
+
+/* Produce by  */
+.footer p {
+    margin-top: 1em;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+/* animation */
+
+@keyframes jiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    5% {
+        transform: rotate(-1deg);
+    }
+    10% {
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(1deg);
+    }
+    20% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-1deg);
+    }
+    30% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(1deg);
+    }
+    40% {
+        transform: rotate(0deg);
+    }
+    45% {
+        transform: rotate(-1deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    55% {
+        transform: rotate(1deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+    65% {
+        transform: rotate(-1deg);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes jigglebis {
+    0% {
+        transform: rotate(0deg);
+    }
+    5% {
+        transform: rotate(-3deg);
+    }
+    10% {
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(3deg);
+    }
+    20% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    30% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(3deg);
+    }
+    40% {
+        transform: rotate(0deg);
+    }
+    45% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    55% {
+        transform: rotate(3deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+    65% {
+        transform: rotate(-3deg);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+ul {
+    list-style: none;
+    padding-left : 0;
+}
+.sousrub {
+    display: none;
+    color: rgb(255, 255, 255);
+    background-color: #dba67b;
+    font-size: 1em;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    padding: 30px; 
+    border-radius: 1em;
+    white-space:nowrap;
+    
+}
+.sousrub li a{
+    list-style:none;
+    color:white
+
+
+}
+.sousrub li:hover{
+    
+    background-color: #492825;
+}
+.rub:hover .sousrub {
+    display:block;
+    position:absolute;
+    
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+.rub{
+
+    list-style: none;
+}
+
+.btn-validation {
+    font-size: 30px !important;
+    padding: 0 !important;
+    transition: all 0.4s ease !important;
+}
+
+.menu{
+display: flex;
+}
+
+
+
+
+/* Inté rajouts */
+invisible {
+    opacity:0; /*On a rajouté une icone + dans le header pour centrer le titre, ceci la rend invisible*/
+}
+
+/*Boutons ajout + suppr cartes*/
+.ajoutdeletecards {
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    top:3em;
+    right:0;
+    font-size: 1.6em;
+    color: #dba67b;
+}
+.ajoutdeletecards > i {
+    padding-top:1em;
+}
+
+/*Texte menu*/
+.rub {
+    color: #dba67b;
+}
+
+span.form-error {
+    display: block;
+    background-color: rgba(255, 100, 100, 1);
+    color: white;
+    padding: 1em;
+    border: 5px;
+    width: 90%
+}
+
+
+span.form-validation{
+
+    display: block;
+    background-color: rgb(109, 255, 51);
+    color: white;
+    padding: 1em;
+    border: 5px;
+    width: 90%
+
+
+
+
+}
+
+.change{
+
+color:rgb(255, 124, 124) !important;
+}

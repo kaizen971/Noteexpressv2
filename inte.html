@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- LOGO FONT AWESOME  -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+            integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+            crossorigin="anonymous"
+        />
+        <!-- POLICE GOOGLE FONTS BODY -->
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+			<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+		<!-- POLICE GOOGLE FONTS H1 -->
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+        <!-- BOOTSTRAP  -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <!-- CSS NORMAL  -->
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="./cards.css" />
+        <title>Vue JS - Gallery Image</title>
+    </head>
+
+    <body>
+        <div id=app>
+        <div id="parent">
+        <!-- NAVBAR BOOTSWATCH -->
+        <nav id='top' class="navbar header">
+            <a href="index.html">
+                <i class="fas fa-home logoHome"></i>
+            </a>
+			<h1>Intégration</h1>
+            <p id="Messageconnexion"></p>
+           
+            <i
+            class="fas fa-user btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal2"
+        ></i>
+            <!-- Button trigger modal -->
+            <div
+            class="modal fade"
+            id="exampleModal2"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" id="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" v-on:click=connnexion()>
+                            Se connecter
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <span>Nom d'utilisateur : </span></span>
+                        <input type="identifiant" id="identifiant" v-model="identifiant"/><br><br>
+                        <span>Mot de passe : </span>
+                        <input type="password" id="password" v-model="password" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" v-on:click=inscription()>
+                            S'inscrire
+                        </button>
+                        <button type="button" class="btn btn-primary btndeconnexion invisible" v-on:click=deconnexion()>
+                           deconnexion
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            v-on:click=connexion();
+                        >
+                            <i class="far fa-check-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </nav>
+		<!-- FIN NAVBAR BOOTSWATCH -->
+
+        <!-- Liste Logo  -->
+        <div class="card-logo">
+			<div class="menu">
+            <li class="rub">HTML <i class="fab fa-html5"><ul id="menu">
+             
+                    <ul class="sousmenu sousrub">
+                        <li><a href="#">Module 1</a></li>
+                        <li><a href="#">Module 2</a></li>
+                        <li><a href="#">Module 3</a></li>
+                        <li><a href="#">Module 4</a></li>
+                    </ul>
+                
+            </ul></i></li>
+            
+           
+            <li class="rub">CSS <i class="fab fa-css3">
+                <ul id="menu">
+             
+                    <ul class="sousmenu sousrub">
+                        <li><a href="#">Module 1</a></li>
+                        <li><a href="#">Module 2</a></li>
+                        <li><a href="#">Module 3</a></li>
+                        <li><a href="#">Module 4</a></li>
+                    </ul>
+                
+                </ul>
+                
+            </i></li>
+            </div>
+        </div>
+
+        <!--Bloc ajout suppr cartes-->
+        <div class="ajoutdeletecards" id="ajoutdeletecards">
+            <!--Modal ajout-->
+            <i class="fas fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ajouter une carte</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <fieldset>
+                                <legend>Question</legend>
+                                <textarea name="query" id="question"></textarea>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Réponse</legend>
+                                <textarea name="query" id="reponse"></textarea>
+                            </fieldset>
+                           <fieldset>
+                                <legend>Catégorie</legend>
+                                <div class="field">
+                                    <select name="object" id="categorie">
+                                        <optgroup label="Intégration">
+                                            <option value="html">HTML</option>
+                                            <option value="css">CSS</option>
+                                        </optgroup>
+                                        <optgroup label="Développement">
+                                            <option value="js">JS</option>
+                                            <option value="php">PHP</option>
+                                        </optgroup>
+                                        <optgroup label="Extensions">
+                                            <option value="git">Git</option>
+                                            <option value="boot">Bootstrap</option>
+                                            <option value="view">View</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" v-on:click="ajoutcard"><i class="fas fa-plus btn-validation"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Bouton suppr-->
+            <i class="fas fa-trash" v-on:click=Onclickpoubelle() id="icondelete"></i>
+            <p ></p>
+        </div>
+        <!-- Bloc carte 1  -->
+        
+            <div class="flashcard-list">
+       
+
+            
+                <!-- Directive v-on (pour un évènement) -->
+                <!-- Directive v-for (boucle) -->
+                <div v-on:click="toggleCard(card)" v-for="card in cards">
+               
+                    <div class="card  " >
+                   <div class="card__inner" v-bind:class="{ active: card.active, card__innerActive: card.flipped }" v-bind:style="{backgroundColor: card.categorie}">
+                    
+                  <div    class="card__content card_content--front">
+                      <h3>Question:</h3>
+                       <p class ="contenu" >{{card.question}}</p>
+                    </div>    
+                    
+                    
+                     <div    class="card__content card__content--back">
+                        <h3>Réponse:</h3>     
+                    <p class="contenu">{{card.reponse}}</p>
+                               
+                            <!-- j'ai réaliser un partage -->
+                    </div>
+                    </div>  
+                    </div>
+                
+                    
+                </div>
+                
+            </div>
+       
+			
+        
+
+
+
+		<!-- FOOTER -->
+        <nav class="navbar footer">
+            <a href="#top">
+                <i class="fas fa-chevron-up"></i>
+            </a>
+			<p>Produce by : <em>Wenn | Raph | Jordan | Dav | A.D</em></p>
+			<a href="#">
+				<i class="far fa-copyright"></i> 
+			</a>  
+        </nav>
+		<!-- FIN FOOTER --> 
+    </div>
+</div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="./app.js"></script>
+    
+    </body>
+</html>
